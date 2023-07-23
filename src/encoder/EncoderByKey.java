@@ -2,7 +2,7 @@ package encoder;
 import code.CesarCode;
 
 public class EncoderByKey extends Encoder {
-    private final CesarCode cesarCode;
+    private CesarCode cesarCode;
     public EncoderByKey(CesarCode cesarCode) {
         this.cesarCode = cesarCode;
     }

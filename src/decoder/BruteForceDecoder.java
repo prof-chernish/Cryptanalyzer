@@ -3,14 +3,14 @@ package decoder;
 import code.CesarCode;
 
 public class BruteForceDecoder extends Decoder {
-    private final int numberOfAttempts = 100;
-    private CesarCode cesarCode;
+    private final static int NUMBER_OF_ATTEMPTS = 1000;
+
     @Override
     public String decode(String encryptedText) {
         int key = 0;
-        cesarCode = new CesarCode(key);
+        CesarCode cesarCode = new CesarCode(key);
         DecoderByKey decoderByKey = new DecoderByKey(cesarCode);
-        while (key < numberOfAttempts) {
+        while (key < NUMBER_OF_ATTEMPTS) {
             String decryptedText = decoderByKey.decode(encryptedText);
             if (!isDecodingCorrect(decryptedText)) {
                 key++;
@@ -19,9 +19,6 @@ public class BruteForceDecoder extends Decoder {
             } else {
                 return decryptedText;
             }
-
-
-
         }
         return "Decryption Failed";
 

@@ -11,10 +11,10 @@ public abstract class Decoder {
     protected boolean isDecodingCorrect(String decryptedText) {
         List<String> checks = new ArrayList<>();
         checks.add("[^-А-Яа-яёЁ.,!?: \"]");
-        checks.add("[!?.,:-]{2,}");
+        checks.add("[?,:-]{2,}");
         checks.add("\\s{2,}");
         checks.add("[.,!?][^ ]");
-        checks.add("[.!?] [^А-Я]");
+        checks.add("[.!?] [^А-ЯЁ]");
 
         for (String check: checks) {
             Pattern pattern = Pattern.compile(check);

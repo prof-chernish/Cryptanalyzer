@@ -25,12 +25,24 @@ public class UI {
             switch (answer) {
                 case "1" -> {
                     System.out.println("Введите ключ шифра Цезаря");
-                    int key = Integer.parseInt(readerFromConsole.readLine());
+                    String inputKey = readerFromConsole.readLine();
+                    while (!inputKey.matches("\\d+")) {
+                        System.out.println("Некорректное значение ключа");
+                        System.out.println("Введите целое число");
+                        inputKey = readerFromConsole.readLine();
+                    }
+                    int key = Integer.parseInt(inputKey);
                     service.encode(key);
                 }
                 case "2" -> {
                     System.out.println("Введите ключ шифра Цезаря");
-                    int key = Integer.parseInt(readerFromConsole.readLine());
+                    String inputKey = readerFromConsole.readLine();
+                    while (!inputKey.matches("\\d+")) {
+                        System.out.println("Некорректное значение ключа");
+                        System.out.println("Введите целое число");
+                        inputKey = readerFromConsole.readLine();
+                    }
+                    int key = Integer.parseInt(inputKey);
                     service.decodeByKey(key);
                 }
                 case "3" -> service.bruteForceDecode();
